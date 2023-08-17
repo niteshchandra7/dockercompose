@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   mongodb:
+    container_name: "mongodb"
     image: "mongo"
     volumes:
       - data:/data/db
@@ -11,6 +12,7 @@ services:
     env_file:
       - ./env/mongo.env
   backend:
+    container_name: "backend"
     build: ./backend
     # build:
     #   context: ./backend
@@ -27,10 +29,18 @@ services:
       - ./env/backend.env
     depends_on:
       - mongodb
-    
+  frontend:
+    build: ./frontend
+    container_name: "frontend"
+    volumes:
+      - ./frontend/src:/app/src
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    stdin_open: true
+    tty: true    
 
-
-  #frontend:
 
 volumes:
   data:
