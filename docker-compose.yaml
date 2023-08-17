@@ -45,3 +45,10 @@ services:
 volumes:
   data:
   logs:
+
+
+# docker compose up
+# docker compose up --build ## forces to build the image
+# docker compose build ## forces to build the image
+# docker compose down 
+# docker compose down -v
