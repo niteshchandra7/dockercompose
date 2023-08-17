@@ -48,6 +48,7 @@ volumes:
 
 
 # docker compose up
+# docker compose up -d
 # docker compose up --build ## forces to build the image
 # docker compose build ## forces to build the image
 # docker compose down 
